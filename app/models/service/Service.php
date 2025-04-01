@@ -47,4 +47,16 @@ class Service
         return $resultado;
     }
 
+    
+    public static function excluir($tabela, $campo, $valor)
+    {
+        $dao = new Dao();
+        $excluir = $dao->excluir($tabela, $campo, $valor);
+        if ($excluir) {
+            Flash::setMsg("Registro excluido com sucesso", 1);
+        } else {
+            Flash::setMsg("Não foi Possível excluir o registro", -1);
+        }
+    }
+
 }

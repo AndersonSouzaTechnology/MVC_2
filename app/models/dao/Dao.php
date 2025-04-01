@@ -25,4 +25,9 @@ class Dao extends Model
     {
         return $this->edit($this->db, $dados, $campo, $tabela);
     }
+
+    public function excluir($tabela, $campo, $valor)
+    {
+        return $this->del($this->db, $campo, $valor, $tabela);
+    }
 }

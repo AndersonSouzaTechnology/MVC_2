@@ -1,6 +1,6 @@
 <?php
 define("SERVIDOR", "localhost");
-define("BANCO", "agora _agenda");
+define("BANCO", "agora_agenda");
 define("USUARIO", "root");
 define("SENHA", "");
 define("CHARSET","UTF8");
@@ -13,7 +13,7 @@ define('TIMEZONE',"America/Fortaleza");
 define('CAMINHO'            , realpath('./'));
 define("TITULO_SITE","mjailton-ligando vc ao mundo do conhecimento");
 
-define('URL_BASE', 'http://' . $_SERVER["HTTP_HOST"].'/MVC_MJailton_2/agenda/');
+define('URL_BASE', 'http://' . $_SERVER["HTTP_HOST"].'/MVCMjailtom_2\MVC_2/');
 define('URL_IMAGEM', "http://". $_SERVER['HTTP_HOST'] . "/estrutura_mvc/UP/");
 
 // define("SESSION_LOGIN","usuario_agenda_logado");

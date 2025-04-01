@@ -9,10 +9,12 @@ use app\models\service\ClienteService;
 
 class ClienteController extends Controller
 {
+    private $tabela = "cliente";
+    private $campo = "id_cliente";
 
     public function index()
     {
-        $dados["lista"]  = Service::lista("cliente");
+        $dados["lista"]  = Service::lista($this->tabela);
         $dados["view"]  = "Cliente/Index";
         $this->load("template", $dados);
     }
@@ -26,7 +28,7 @@ class ClienteController extends Controller
 
     public function edit($id)
     {
-        $cliente = Service::get("cliente", "id_cliente", $id);
+        $cliente = Service::get($this->tabela, $this->campo, $id);
         if(!$cliente) {
             $this->redirect(URL_BASE . "cliente/index");
         }
@@ -52,7 +54,7 @@ class ClienteController extends Controller
         $cliente->data_cadastro   = date("Y-m-d");  
         
         Flash::setForm($cliente);
-        if(ClienteService::salvar($cliente, "id_cliente", "cliente")) {
+        if(ClienteService::salvar($cliente, $this->campo, $this->tabela)) {
             $this->redirect(URL_BASE . "cliente/index");
         }else{
             $this->redirect(URL_BASE . "cliente/create");
@@ -60,7 +62,7 @@ class ClienteController extends Controller
     }
 
     public function excluir($id) {
-        ClienteService::excluir($id);
+        Service::excluir($this->tabela, $this->campo, $id);
         $this->redirect(URL_BASE . "cliente/index");
     }
 }
